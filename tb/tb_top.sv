@@ -28,7 +28,7 @@ module tb_top;
   //wire  [31:0] rs2_o;
 
   // Generation of dumpfile for GTKWave
-  initial begin
+   initial begin
     $dumpfile("regfile_dump.vcd");
     $dumpvars(0, tb_top);//, clk_gen_inst, regfile_inst, reg_32bit_inst);
     for (i=0; i<32;i++)
@@ -76,7 +76,7 @@ module tb_top;
     rst_n = 1'b1;
     #50
 
-    $display("PASSED!");
+    $display("PASSED!"); // Yeah, that easy!
     $finish;
   end
 
