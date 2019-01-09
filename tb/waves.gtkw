@@ -1,0 +1,71 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Thu Dec 27 10:36:52 2018
+[*]
+[dumpfile] "/home/yasin/proj/cpu_proj/tb/regfile_dump.vcd"
+[dumpfile_mtime] "Thu Dec 27 10:31:23 2018"
+[dumpfile_size] 8600
+[savefile] "/home/yasin/proj/cpu_proj/tb/waves.gtkw"
+[timestart] 0
+[size] 1853 870
+[pos] -1 -1
+*-15.872327 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_top.
+[sst_width] 223
+[signals_width] 240
+[sst_expanded] 1
+[sst_vpaned_height] 247
+@c00201
+-QOUT
+@22
+tb_top.regfile_inst.\qout[0][31:0]
+tb_top.regfile_inst.\qout[1][31:0]
+tb_top.regfile_inst.\qout[2][31:0]
+tb_top.regfile_inst.\qout[3][31:0]
+tb_top.regfile_inst.\qout[4][31:0]
+tb_top.regfile_inst.\qout[5][31:0]
+tb_top.regfile_inst.\qout[6][31:0]
+tb_top.regfile_inst.\qout[7][31:0]
+tb_top.regfile_inst.\qout[8][31:0]
+tb_top.regfile_inst.\qout[9][31:0]
+tb_top.regfile_inst.\qout[10][31:0]
+tb_top.regfile_inst.\qout[11][31:0]
+tb_top.regfile_inst.\qout[12][31:0]
+tb_top.regfile_inst.\qout[13][31:0]
+tb_top.regfile_inst.\qout[14][31:0]
+tb_top.regfile_inst.\qout[15][31:0]
+tb_top.regfile_inst.\qout[16][31:0]
+tb_top.regfile_inst.\qout[17][31:0]
+tb_top.regfile_inst.\qout[18][31:0]
+tb_top.regfile_inst.\qout[19][31:0]
+tb_top.regfile_inst.\qout[20][31:0]
+tb_top.regfile_inst.\qout[21][31:0]
+tb_top.regfile_inst.\qout[22][31:0]
+tb_top.regfile_inst.\qout[23][31:0]
+tb_top.regfile_inst.\qout[24][31:0]
+tb_top.regfile_inst.\qout[25][31:0]
+tb_top.regfile_inst.\qout[26][31:0]
+tb_top.regfile_inst.\qout[27][31:0]
+tb_top.regfile_inst.\qout[28][31:0]
+tb_top.regfile_inst.\qout[29][31:0]
+tb_top.regfile_inst.\qout[30][31:0]
+tb_top.regfile_inst.\qout[31][31:0]
+@1401201
+-QOUT
+@28
+tb_top.regfile_inst.clk
+@22
+tb_top.regfile_inst.rs1_i[4:0]
+tb_top.regfile_inst.rs1_o[31:0]
+tb_top.regfile_inst.rs2_i[4:0]
+tb_top.regfile_inst.rs2_o[31:0]
+@28
+tb_top.regfile_inst.rst_n
+@22
+tb_top.regfile_inst.wdata_i[31:0]
+@28
+tb_top.regfile_inst.wr_en
+@22
+tb_top.regfile_inst.wrs_i[4:0]
+[pattern_trace] 1
+[pattern_trace] 0
