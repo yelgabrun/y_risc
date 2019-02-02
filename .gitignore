@@ -1,0 +1,6 @@
+./tb/reg32bit_dumpfile.vcd
+./tb/regfile.vcd
+./tb/a.out
+./tb/dsn
+./tb/verilog.out
+./tb/waves.gtkw
