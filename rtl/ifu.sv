@@ -19,7 +19,7 @@ module ifu (
                             .reg_i(next_pc),
                             .reg_o(pc));
 
-  assign next_pc = pc + 32'd1;
+  assign next_pc = pc + 32'd4;
 
 //  regfile regfile_inst(.clk    (clk),
 //                       .rst_n  (rst_n),
