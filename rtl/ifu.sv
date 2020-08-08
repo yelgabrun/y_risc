@@ -1,5 +1,6 @@
 `timescale 1ns/100ps
 
+// Instruction Fetch Unit
 module ifu (
   input  wire clk,
   input  wire rst_n,
