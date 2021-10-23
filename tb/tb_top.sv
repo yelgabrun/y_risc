@@ -19,7 +19,7 @@ module tb_top;
                        //.wrs_i(wrs_i),
                        .wdata_i(wdata_i),
                        .alu_op_i(alu_op_i),
-                       .mem_read_data(32'd0),
+                       .mem_rdata_i(32'd0),
                        .alu_result_o(),
                        .z_flag_o());
 

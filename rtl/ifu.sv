@@ -4,15 +4,15 @@
 module ifu (
   input  wire clk,
   input  wire rst_n,
-  output wire [31:0] instruction
+  output wire [31:0] instruction_o
 );
 
   wire [31:0] next_pc;
   wire [31:0] pc;
   wire [31:0] inst;
 
-  instruction_memory instruction_memory_inst(.address(pc),
-                                             .instruction(instruction));
+  instruction_memory instruction_memory_inst(.address_i(pc),
+                                             .instruction_o(instruction_o));
 
   reg32bit reg32bit_pc_inst(.clk  (clk),
                             .rst_n(rst_n),
