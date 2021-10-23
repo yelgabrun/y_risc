@@ -4,3 +4,6 @@
 ./tb/dsn
 ./tb/verilog.out
 ./tb/waves.gtkw
+./sim/verilog
+
+
