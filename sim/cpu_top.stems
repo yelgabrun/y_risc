@@ -1,0 +1,5 @@
+++ module e,3,8,3,15 file ../rtl/cpu_top.sv lines 3 - 3
+++ comp e,23,11,23,23 type clk_gen_inst parent e,3,8,3,15
+++ comp e,26,7,26,15 type ifu_inst parent e,3,8,3,15
+++ comp e,33,11,33,23 type regfile_inst parent e,3,8,3,15
+++ comp e,45,7,45,15 type alu_inst parent e,3,8,3,15
