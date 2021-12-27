@@ -5,7 +5,7 @@ module  instruction_memory(
   output reg  [31:0] instruction_o 
 );
 
-  reg [31:0] imem [0:255]; // 1KB memory.
+  reg [31:0] imem [0:255]; // 1KB instruction memory.
   
   initial begin
     $readmemh("inst.mem", imem);

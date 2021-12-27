@@ -8,4 +8,5 @@ library_input:  ../rtl/*.sv ../tb/*.sv #cpu_top.sv ifu.sv reg32bit.sv inst_mem.s
 
 	vvp verilog
 #	gtkwave regfile_dump.vcd waves.gtkw  &
-	gtkwave -o -t cpu_top.stems -f cpu_dump.vcd waves.gtkw &
+#	gtkwave -o -t cpu_top.stems -f cpu_dump.vcd waves.gtkw &
+	gtkwave -o -f cpu_dump.vcd waves.gtkw &

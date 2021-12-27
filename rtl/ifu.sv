@@ -2,9 +2,9 @@
 
 // Instruction Fetch Unit
 module ifu (
-  input  wire clk,
-  input  wire rst_n,
-  output wire [31:0] instruction_o
+  input   clk,
+  input   rst_n,
+  output  [31:0] instruction_o
 );
 
   wire [31:0] next_pc;

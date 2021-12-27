@@ -14,8 +14,9 @@ module alu (
   wire [ 6:0] alu_opcode_s;
   wire [ 2:0] alu_funct3_s;
   wire [ 6:0] alu_funct7_s;
-  wire [ 4:0] shamt_s;
+  reg  [ 4:0] shamt_s;
   wire [11:0] imm_s;
+  reg  [31:0] operand2_s;
 //  typedef enum logic [4:0] {ADD, SUB, MUL, DIV, AND, OR, XOR, NOT, LEZ, LTZ, GTZ, EQT, NET} operation_t;
   parameter logic [6:0] RTYPE = 7'b0110011;
   parameter logic [6:0] ITYPE = 7'b0010011;
@@ -41,12 +42,8 @@ module alu (
   parameter logic [2:0] SRLI_SRAI = 3'b101; // Shared funct3
 
   assign imm_s        = instruction_i[31:20];
-  assign shamt_s      = instruction_i[24:20];
   assign alu_opcode_s = instruction_i[ 6: 0];
   assign alu_funct3_s = instruction_i[14:12];
-  assign alu_funct7_s = instruction_i[31:25];
-
-
 
 //
 //funct7   rs2    rs1  funct3  rd  opcode
@@ -61,60 +58,39 @@ module alu (
 //0000000  rs2    rs1  110     rd  0110011  OR
 //0000000  rs2    rs1  111     rd  0110011  AND
 
+  always @(*)
+  begin
+    operand2_s   = 32'd0;
+    shamt_s      = 5'd0;
+    case(alu_opcode_s)
+      7'b0110011:
+      begin
+        operand2_s   = rs2_data_i;
+        shamt_s      = rs2_data_i[4:0];
+      end
+      7'b0010011: 
+      begin
+        operand2_s   = {{20{imm_s[11]}}, imm_s};
+        shamt_s      = instruction_i[24:20];
+      end
+      default: begin end
+    endcase
+  end
 
   always @(*) 
   begin
-    result_o = 32'd0;
-    if (alu_opcode_s == RTYPE)
-    begin
-      case(alu_funct3_s)
-        ADD_SUB:
-        begin
-          if (!alu_funct7_s[5])
-            result_o = rs1_data_i + rs2_data_i; 
-          else
-            result_o = rs1_data_i - rs2_data_i; 
-        end
-        SLL:  result_o = (rs1_data_i << rs2_data_i); 
-        SLT:  result_o[0] = ($signed(rs1_data_i) < $signed(rs2_data_i)); 
-        SLTU: result_o[0] = (rs1_data_i < rs2_data_i); 
-        XOR:  result_o = rs1_data_i ^ rs2_data_i; 
-        SRL_SRA:
-        begin
-          if (!alu_funct7_s[5])
-            result_o = (rs1_data_i >> rs2_data_i); 
-          else
-            result_o = (rs1_data_i >>> rs2_data_i); 
-        end
-        OR:   result_o = rs1_data_i | rs2_data_i; 
-        AND:  result_o = rs1_data_i & rs2_data_i; 
-
-        default: 
-          result_o = 32'hDEADC0DE; 
-      endcase
-    end
-    else if (alu_opcode_s == ITYPE)
-    begin
-      case(alu_funct3_s)
-        ADDI:      result_o    = rs1_data_i + {{20{imm_s[11]}}, imm_s}; 
-        SLTI:      result_o[0] = ($signed(rs1_data_i) < $signed({{20{imm_s[11]}}, imm_s})); 
-        SLTIU:     result_o[0] = (rs1_data_i < {{20{imm_s[11]}}, imm_s}); 
-        XORI:      result_o    = rs1_data_i ^  {{20{imm_s[11]}}, imm_s};
-        ORI:       result_o    = rs1_data_i |  {{20{imm_s[11]}}, imm_s};
-        ANDI:      result_o    = rs1_data_i &  {{20{imm_s[11]}}, imm_s};  
-        SLLI:      result_o    = (rs1_data_i << rs2_data_i);
-        SRLI_SRAI:
-        begin
-          if (!instruction_i[30])
-            result_o = (rs1_data_i >> shamt_s); 
-          else
-            result_o = (rs1_data_i >>> shamt_s); 
-        end
-
-        default:
-          result_o = 32'hDEADC0DE; 
-      endcase
-    end
+    case (alu_funct3_s)
+      3'b000: result_o = (instruction_i[30]) ? (rs1_data_i - operand2_s) : (rs1_data_i + operand2_s); 
+      3'b010: result_o = { 31'd0, ($signed(rs1_data_i) < $signed(operand2_s)) }; 
+      3'b011: result_o = { 31'd0, (rs1_data_i < operand2_s) }; 
+      3'b100: result_o = rs1_data_i ^  operand2_s;
+      3'b110: result_o = rs1_data_i |  operand2_s;
+      3'b111: result_o = rs1_data_i &  operand2_s;  
+      3'b001: result_o = (rs1_data_i << shamt_s);
+      3'b101: result_o = (instruction_i[30]) ? (rs1_data_i >>> shamt_s) : (rs1_data_i >> shamt_s);
+      default:
+        result_o = 32'hDEADC0DE; 
+    endcase
   end
 
 //Immediate      rs1  f3   rd  opcode

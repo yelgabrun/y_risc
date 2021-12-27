@@ -5,5 +5,7 @@
 ./tb/verilog.out
 ./tb/waves.gtkw
 ./sim/verilog
-
+./rtl/.alu.sv.swp
+./rtl/.cpu_top.sv.swp
+./sim/.gtkwaverc
 
