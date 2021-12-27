@@ -8,7 +8,7 @@ module  instruction_memory(
   reg [31:0] imem [0:255]; // 1KB instruction memory.
   
   initial begin
-    $readmemh("inst.mem", imem);
+    $readmemb("inst.mem", imem);
   end
 
   always @(*)
