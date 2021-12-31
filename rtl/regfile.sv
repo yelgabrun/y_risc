@@ -60,7 +60,6 @@ module regfile #(parameter NUM_REGS=32)
       x[wrd_i] <= wdata_i;
     end
   end
-    
 
   assign rs1_o = x[rs1_i];
   assign rs2_o = x[rs2_i];

@@ -1,83 +1,60 @@
 [*]
-[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
-[*] Sun Jan  6 14:03:12 2019
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Tue Dec 28 10:26:33 2021
 [*]
-[dumpfile] "/home/yasin/proj/cpu_proj/rtl/regfile_dump.vcd"
-[dumpfile_mtime] "Sun Jan  6 12:13:02 2019"
-[dumpfile_size] 18816
-[savefile] "/home/yasin/proj/cpu_proj/rtl/waves.gtkw"
+[dumpfile] "/home/yelgabrun/projects/y_risc/sim/cpu_dump.vcd"
+[dumpfile_mtime] "Tue Dec 28 10:24:47 2021"
+[dumpfile_size] 49883
+[optimize_vcd]
+[savefile] "/home/yelgabrun/projects/y_risc/sim/waves.gtkw"
 [timestart] 0
-[size] 1853 870
+[size] 1853 909
 [pos] -1 -1
 *-16.668282 209000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] tb_top.
 [treeopen] tb_top.cpu_top_inst.
-[treeopen] tb_top.cpu_top_inst.ifu_inst.
+[treeopen] tb_top.cpu_top_inst.i_decode.
 [sst_width] 223
 [signals_width] 446
 [sst_expanded] 1
 [sst_vpaned_height] 247
 @28
-tb_top.cpu_top_inst.ifu_inst.clk
+tb_top.cpu_top_inst.sysclk
+tb_top.cpu_top_inst.rst_n_i
 @22
-tb_top.cpu_top_inst.ifu_inst.instruction[31:0]
-tb_top.cpu_top_inst.ifu_inst.next_pc[31:0]
-tb_top.cpu_top_inst.ifu_inst.pc[31:0]
-@28
-tb_top.cpu_top_inst.ifu_inst.rst_n
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[0][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[1][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[2][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[3][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[4][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[5][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[6][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[7][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[8][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[9][31:0]
+@23
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[10][31:0]
 @22
-tb_top.cpu_top_inst.regfile_inst.\x[0][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[1][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[2][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[3][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[4][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[5][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[6][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[7][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[8][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[9][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[10][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[11][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[12][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[13][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[14][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[15][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[16][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[17][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[18][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[19][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[20][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[21][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[22][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[23][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[24][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[25][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[26][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[27][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[28][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[29][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[30][31:0]
-tb_top.cpu_top_inst.regfile_inst.\x[31][31:0]
-@28
-tb_top.cpu_top_inst.regfile_inst.clk
-@2022
-^1 /home/yasin/proj/cpu_proj/rtl/reg_enc.txt
-tb_top.cpu_top_inst.regfile_inst.rs1_i[4:0]
-@22
-tb_top.cpu_top_inst.regfile_inst.rs1_o[31:0]
-@2022
-^1 /home/yasin/proj/cpu_proj/rtl/reg_enc.txt
-tb_top.cpu_top_inst.regfile_inst.rs2_i[4:0]
-@22
-tb_top.cpu_top_inst.regfile_inst.rs2_o[31:0]
-@28
-tb_top.cpu_top_inst.regfile_inst.rst_n
-@22
-tb_top.cpu_top_inst.regfile_inst.wdata_i[31:0]
-@28
-tb_top.cpu_top_inst.regfile_inst.wr_en
-@2023
-^1 /home/yasin/proj/cpu_proj/rtl/reg_enc.txt
-tb_top.cpu_top_inst.regfile_inst.wrs_i[4:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[11][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[12][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[13][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[14][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[15][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[16][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[17][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[18][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[19][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[20][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[21][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[22][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[23][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[24][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[25][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[26][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[27][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[28][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[29][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[30][31:0]
+tb_top.cpu_top_inst.i_decode.regfile_inst.\x[31][31:0]
 [pattern_trace] 1
 [pattern_trace] 0

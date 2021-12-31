@@ -12,8 +12,8 @@ module tb_top;
   integer i;
       
   // Instantiation of a reg32bit block
-  cpu_top cpu_top_inst(.rst_n(rst_n),
-                       .wr_en(wr_en),
+  cpu_top cpu_top_inst(.rst_n_i(rst_n),
+                       .wr_en_i(wr_en),
                        //.rs1_i(rs1_i),
                        //.rs2_i(rs2_i),
                        //.wrd_i(wrd_i),
@@ -32,7 +32,7 @@ module tb_top;
     $dumpfile("cpu_dump.vcd");
     $dumpvars(0, tb_top);//, clk_gen_inst, regfile_inst, reg_32bit_inst);
     for (i=0; i<32;i++)
-      $dumpvars(0,cpu_top_inst.regfile_inst.x[i]);
+      $dumpvars(0,cpu_top_inst.i_decode.regfile_inst.x[i]);
   end
  
   // Test procedure
@@ -46,7 +46,7 @@ module tb_top;
     wr_en = 1'b1;
     
     #100
-    #1000
+    #10000
 //    wrd_i = 5'd13;
 //    rs1_i = 5'd13;
 //    wdata_i = 32'h00FF00FF;
