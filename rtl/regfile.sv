@@ -5,9 +5,9 @@ module regfile #(parameter NUM_REGS=32)
   input          clk,     // Input clock
   input          rst_n,   // Reset (active-low)
   input          wr_en,   // Enable register write
-  input   [ 4:0] rs1_i,   // Read source register 1
-  input   [ 4:0] rs2_i,   // Read source register 2
-  input   [ 4:0] wrd_i,   // Write destination register
+  input   [ 4:0] rs1_i,   // Source register 1
+  input   [ 4:0] rs2_i,   // Source register 2
+  input   [ 4:0] rd_i,   // Destination register
   input   [31:0] wdata_i, // Write data in
   output  wire [31:0] rs1_o,   // Read data for RS1
   output  wire [31:0] rs2_o    // Read data for RS2
@@ -20,8 +20,8 @@ module regfile #(parameter NUM_REGS=32)
   always @(posedge clk or negedge rst_n) begin
     if (!rst_n)
     begin
-//      din[wrd_i] <= 32'd0;
-//      x[wrd_i] <= 32'd0;
+//      din[rd_i] <= 32'd0;
+//      x[rd_i] <= 32'd0;
       x[ 0] <= 32'd0;
       x[ 1] <= 32'd0;
       x[ 2] <= 32'd0;
@@ -55,9 +55,9 @@ module regfile #(parameter NUM_REGS=32)
       x[30] <= 32'd0;
       x[31] <= 32'd0;
     end
-    else if (wr_en && (wrd_i != 5'd0)) begin
-//      din[wrd_i] <= wdata_i;
-      x[wrd_i] <= wdata_i;
+    else if (wr_en && (rd_i != 5'd0)) begin
+//      din[rd_i] <= wdata_i;
+      x[rd_i] <= wdata_i;
     end
   end
 

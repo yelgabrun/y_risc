@@ -19,18 +19,28 @@ module decode
 
   wire [ 6:0] opcode_s;
   wire [31:0] rs2_data_s;
-  wire [31:0] rf_wdata_s;
+  reg [31:0] rf_wdata_q;
   // Decode: includes a regfile (minimal decode for now) TODO: improve decode
   // stage
   // Instantiation of a register file with 32x 32-bit registers
-  assign rf_wdata_s = load_en_o ? load_data_i : alu_result_i;
+//  assign rf_wdata_q = load_en_o ? load_data_i : alu_result_i;
+
+//  always @(posedge clk_i or negedge rst_n_i)
+  always @*
+  begin
+//    if (!rst_n_i)
+      rf_wdata_q = 32'd0;
+//    else
+      rf_wdata_q = load_en_o ? load_data_i : alu_result_i;
+  end
+
   regfile regfile_inst(.clk    (clk_i),
                        .rst_n  (rst_n_i),
                        .wr_en  (wr_en_i),
                        .rs1_i  (instruction_i[19:15]),
                        .rs2_i  (instruction_i[24:20]),
-                       .wrd_i  (instruction_i[11: 7]),
-                       .wdata_i(rf_wdata_s),
+                       .rd_i   (instruction_i[11: 7]),
+                       .wdata_i(rf_wdata_q),
                        .rs1_o  (rs1_data_o),
                        .rs2_o  (rs2_data_s)
                        );
@@ -44,7 +54,7 @@ module decode
   begin
     operand2_o   = 32'd0;
     shamt_o      = 5'd0;
-    load_en_o    = 1'b1;
+    load_en_o    = 1'b0;
     case(opcode_s)
       7'b0110011:
       begin

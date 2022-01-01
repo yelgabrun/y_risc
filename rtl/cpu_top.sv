@@ -14,7 +14,7 @@ module cpu_top(
 
 );
 
-  wire sysclk, op_type_s, data_read_en_s;
+  wire sysclk, op_type_s, data_read_en_s, load_en_s;
   wire [31:0] rs1_data_s, operand2_s, instruction_s, alu_result_s, ld_address_s;
   wire [ 4:0] shamt_s;
   wire [11:0] imm_s;
