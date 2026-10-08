@@ -45,7 +45,7 @@ module decode
                        .rs2_o  (rs2_data_s)
                        );
 
-  assign op_type_o = instruction_i[31];
+  assign op_type_o = instruction_i[30];
   assign imm_o     = instruction_i[31:20];
   assign opcode_s  = instruction_i[ 6: 0];
   assign funct3_o  = instruction_i[14:12];

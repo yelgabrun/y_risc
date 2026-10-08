@@ -18,7 +18,7 @@ module ld_st_unit (
     if (load_en_i)
     begin
       case (funct3_i)
-        3'b010: ld_address_o = rs1_data_i + {{20{offset_i[11]}}, offset_i}; 
+        3'b010: ld_address_o = rs1_data_i + {{20{offset_i[11]}}, offset_i}; // Add sign-extended offset to content of RS1
 //        3'b001: ld_address_o = ;
 //        3'b010: ld_address_o = ; 
 ////        3'b011: ld_address_o = ; 

@@ -8,7 +8,7 @@ module tb_top;
   reg   [ 4:0] rs2_i    = 5'd0;
   reg   [ 4:0] wrd_i    = 5'd0;
   reg   [31:0] wdata_i  = 32'd0;
-  reg   [ 6:0] alu_op_i = 4'd0;
+//  reg   [ 6:0] alu_op_i = 4'd0;
   integer i;
       
   // Instantiation of a reg32bit block
@@ -17,9 +17,9 @@ module tb_top;
                        //.rs1_i(rs1_i),
                        //.rs2_i(rs2_i),
                        //.wrd_i(wrd_i),
-                       .wdata_i(wdata_i),
-                       .alu_op_i(alu_op_i),
-                       .mem_rdata_i(32'd0),
+                       //.alu_op_i(alu_op_i),
+                       //.wdata_i(wdata_i),
+//                       .mem_rdata_i(32'd0),
                        .alu_result_o(),
                        .z_flag_o());
 
