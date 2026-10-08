@@ -6,9 +6,9 @@ module cpu_top(
 //  input  [ 4:0] rs1_i,
 //  input  [ 4:0] rs2_i,
 //  input  [ 4:0] wrd_i,
-  input  [ 6:0] alu_op_i,
-  input  [31:0] wdata_i,
-  input  [31:0] mem_rdata_i,
+//  input  [ 6:0] alu_op_i,
+//  input  [31:0] wdata_i,
+//  input  [31:0] mem_rdata_i,
   output [31:0] alu_result_o,
   output        z_flag_o
 
@@ -26,7 +26,7 @@ module cpu_top(
   // Instantiation of a clk_gen block
   clk_gen i_clk_gen(.clk(sysclk));
 
-  // Fetch: includes PC + instruction memory
+  // Fetch: includes PC
   ifu i_ifu(
     .clk  (sysclk),
     .rst_n(rst_n_i),
@@ -36,7 +36,7 @@ module cpu_top(
   assign data_address_s = ld_address_s;
   assign data_read_en_s = load_en_s;
   main_memory i_main_memory(
-    .clk_i                (sysclk),
+    .clk_i                (sysclk), // TODO: clk isn't used atm.
     .instruction_address_i(pc_s),
     .data_address_i       (data_address_s),
     .data_read_en_i       (data_read_en_s),
@@ -62,11 +62,11 @@ module cpu_top(
 
   // Execute: includes ALU module
   alu i_alu(
-    .op_type_i    (op_type_s),
-    .rs1_data_i   (rs1_data_s),
-    .operand2_i   (operand2_s),
-    .funct3_i     (funct3_s),
-    .shamt_i      (shamt_s),
+    .op_type_i    (op_type_s   ),
+    .rs1_data_i   (rs1_data_s  ),
+    .operand2_i   (operand2_s  ),// Could be rs2 or immediate
+    .funct3_i     (funct3_s    ),
+    .shamt_i      (shamt_s     ),
     .alu_result_o (alu_result_s)
   );
 

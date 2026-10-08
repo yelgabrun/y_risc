@@ -2,15 +2,15 @@
 
 module regfile #(parameter NUM_REGS=32)
 (
-  input          clk,     // Input clock
-  input          rst_n,   // Reset (active-low)
-  input          wr_en,   // Enable register write
-  input   [ 4:0] rs1_i,   // Source register 1
-  input   [ 4:0] rs2_i,   // Source register 2
-  input   [ 4:0] rd_i,   // Destination register
-  input   [31:0] wdata_i, // Write data in
-  output  wire [31:0] rs1_o,   // Read data for RS1
-  output  wire [31:0] rs2_o    // Read data for RS2
+  input          clk,        // Input clock
+  input          rst_n,      // Reset (active-low)
+  input          wr_en,      // Enable register write
+  input   [ 4:0] rs1_i,      // Source register 1
+  input   [ 4:0] rs2_i,      // Source register 2
+  input   [ 4:0] rd_i,       // Destination register
+  input   [31:0] wdata_i,    // Write data in
+  output  wire [31:0] rs1_o, // Read data for RS1
+  output  wire [31:0] rs2_o  // Read data for RS2
 );
     
 

@@ -22,7 +22,7 @@ module  main_memory(
   begin
 //    instruction_o = 32'd0;
     load_data_o   = 32'd0;
-    instruction_o = main_mem[instruction_address_i[9:2]]; // Instructions always aligned
+    instruction_o = main_mem[instruction_address_i[9:2]]; // Omitting bits 1:0 since instructions always aligned
     if (data_read_en_i)
     begin
       load_data_o   = main_mem[data_address_i[9:0]]; // Data can be byte/HW/W-aligned
