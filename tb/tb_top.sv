@@ -10,6 +10,7 @@ module tb_top;
   reg   [31:0] wdata_i  = 32'd0;
 //  reg   [ 6:0] alu_op_i = 4'd0;
   integer i;
+  bit clk;
       
   // Instantiation of a reg32bit block
   cpu_top cpu_top_inst(.rst_n_i(rst_n),
@@ -34,15 +35,24 @@ module tb_top;
     for (i=0; i<32;i++)
       $dumpvars(0,cpu_top_inst.i_decode.regfile_inst.x[i]);
   end
+
+  always #5 clk= ~clk;
+
+  task reset_cpu();
+    rst_n = 1'b0;
+    #20;
+    @(posedge clk);
+    rst_n = 1'b1;
+  endtask
+
  
   // Test procedure
   initial begin
     // reset
-    rst_n = 1'b0;
-    wdata_i  = 32'd0;
-    #10
-    rst_n = 1'b1;
-    #1
+
+    reset_cpu();
+
+    @(posedge clk); 
     wr_en = 1'b1;
     
     #100
