@@ -15,7 +15,7 @@ module ifu (
   reg32bit reg32bit_pc_inst(.clk  (clk),
                             .rst_n(rst_n),
                             //.reset_value_i(32'h80000180),
-                            .reset_value_i(32'h00000000), // Location of first instruction
+                            .reset_value_i(32'hFFFF_FFFC), // Location of first instruction
                             .wr_en_i(1'b1), // FIXME:PC write_enable tied high for now
                             .reg_i(next_pc),
                             .reg_o(pc_o));

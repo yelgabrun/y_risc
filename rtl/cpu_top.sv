@@ -40,6 +40,7 @@ module cpu_top(
     .instruction_address_i(pc_s),
     .data_address_i       (data_address_s),
     .data_read_en_i       (data_read_en_s),
+    .funct3_i             (funct3_s    ),
     .instruction_o        (instruction_s),
     .load_data_o          (load_data_s)
   );
@@ -74,7 +75,7 @@ module cpu_top(
     .clk_i        (sysclk),
     .rst_n_i      (rst_n_i),
     .load_en_i    (load_en_s),
-    .funct3_i     (funct3_s),
+//    .funct3_i     (funct3_s),
     .offset_i     (imm_s),
     .rs1_data_i   (rs1_data_s),
     .ld_address_o (ld_address_s)
