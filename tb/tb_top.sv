@@ -41,7 +41,7 @@ module tb_top;
   task reset_cpu();
     rst_n = 1'b0;
     #20;
-    @(posedge clk);
+    @(negedge clk);
     rst_n = 1'b1;
   endtask
 
@@ -55,32 +55,7 @@ module tb_top;
     @(posedge clk); 
     wr_en = 1'b1;
     
-    #100
     #10000
-//    wrd_i = 5'd13;
-//    rs1_i = 5'd13;
-//    wdata_i = 32'h00FF00FF;
-//    #10
-//    alu_op_i = 4'd4;
-//    #10
-//    wrd_i = 5'd10;
-//    wdata_i = 32'h11FF11FF;
-//    rs2_i = 5'd10;
-//
-//    #50
-//    alu_op_i = 4'd9;
-//    #20
-//    wrd_i = 5'd23;
-//    rs1_i = 5'd23;
-//    wdata_i = 32'hFFFF0000;
-//
-//    #50
-//    wdata_i = 32'hDEADBEEF;
-//
-//    #50
-//    wrd_i = 5'd0;
-//    rs1_i = 5'd0;
-//    wdata_i = 32'hFFFF0000;
 
     #50
     rst_n = 1'b0;
